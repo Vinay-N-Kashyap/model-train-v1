@@ -1,0 +1,16 @@
+{
+  "dataset_name": "REPLACE_WITH_DATASET_NAME",
+  "source": "REPLACE_WITH_SOURCE_URL_OR_ORIGIN",
+  "version": "REPLACE_WITH_EXACT_VERSION_OR_DATE",
+  "license": "REPLACE_WITH_LICENSE_IDENTIFIER",
+  "permitted_uses": [],
+  "rights_reviewed_by_owner": false,
+  "personal_data": "none",
+  "split_plan": {
+    "method": "sequential_bytes",
+    "train": 0.8,
+    "validation": 0.1,
+    "test": 0.1
+  },
+  "notes": "Do not mark rights reviewed or add training use until the license and consent requirements have been checked."
+}

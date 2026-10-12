@@ -23,12 +23,20 @@ python -m pip install -e ".[test]"
 
 ## Data gate
 
-Do not start training until a corpus has documented source, license, permitted use, and split plan. See `data/README.md`. The starter trainer expects `data/raw/corpus.txt`; that file is intentionally absent.
+Do not start training until a corpus has documented source, license, permitted use, owner rights review, privacy review, and split plan. See `data/README.md` and `data/corpus.manifest.example.json`. The starter trainer requires both `data/raw/corpus.txt` and `data/raw/corpus.manifest.json`; neither is included.
+
+The standard-library provenance check can be run before installing PyTorch:
+
+```powershell
+python src/scratch_lm/data_gate.py --data data/raw/corpus.txt
+```
 
 After data approval and installation, a short pipeline smoke test can be run with:
 
 ```powershell
 python -m scratch_lm.train --data data/raw/corpus.txt --steps 10 --batch-size 2
 ```
+
+The trainer uses the manifest's train/validation/test split and records corpus provenance plus a SHA-256 digest in the checkpoint. It does not bundle the corpus in the model artifact.
 
 The model currently learns next-byte prediction only. It does not yet score interview answers. An interview scoring dataset, rubric, instruction-training stage, held-out human evaluation, and a viable no-cost remote host remain required gates from the SRS.
